@@ -48,15 +48,58 @@ import {produce} from 'immer'
 
 
 //* --------------------------
-const employee = {
-    name: 'Mahdi',
-    address: {country: 'Bangladesh', city: 'Lakhsmipur'}
+// const employee = {
+//     name: 'Mahdi',
+//     address: {country: 'Bangladesh', city: 'Lakhsmipur'}
+// }
+
+// const employee2 = produce(employee, (draft)=> {
+//     draft.name = "Hassan",
+//     draft.address.city = "Chittagong"
+// })
+
+// console.log(employee)
+// console.log(employee2)
+
+//* --------------------
+//* Curring / Function Curry
+
+//* Normal Function
+// const add = (a, b) => a + b;
+
+//* Curried
+// const add = (a) => (b) => a + b;
+// console.log(add(3)(5))
+
+
+// function add(a){
+//     return function (b){
+//         return a + b
+//     }
+// }
+// console.log(add(2))
+
+
+
+function add(a){
+    return function (b){
+        return function (c){
+            return a + b + c
+        }
+    }
 }
 
-const employee2 = produce(employee, (draft)=> {
-    draft.name = "Hassan",
-    draft.address.city = "Chittagong"
-})
 
-console.log(employee)
-console.log(employee2)
+// const totalPrice = (amount, discount) => amount - amount * discount;
+// console.log(totalPrice(100, 0.3))
+// console.log(totalPrice(59, 0.3))
+
+
+const totalPrice = (discount) => (amount) => amount - amount * discount
+const withDiscount = totalPrice(0.3)
+
+console.log(withDiscount(100))
+console.log(withDiscount(300))
+console.log(withDiscount(250))
+
+
