@@ -16,7 +16,15 @@ const initialState = {
       dueDate: "2025-11",
       isCompleted: false,
       priority: "High",
-    }
+    },
+    {
+      id: "adkjadkfja",
+      title: "init github repo",
+      description: "Create stage branch",
+      dueDate: "2025-11",
+      isCompleted: false,
+      priority: "Medium",
+    },
   ],
   filter: 'all'
 };
